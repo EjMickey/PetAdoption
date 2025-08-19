@@ -1,0 +1,16 @@
+<template>
+    <lightning-button label="All" onclick={queryall}></lightning-button>
+    <lightning-button label="Adopted" onclick={queryadopted}></lightning-button>
+    <lightning-button label="For Adoption" onclick={querynotadopted}></lightning-button>
+    <template lwc:if={result}>
+        <div class="slds-grid">
+            <template for:each={result.data} for:item="pet">
+                <c-pet-card-cmp key={pet} animal={pet}>
+                </c-pet-card-cmp>
+            </template>
+        </div>
+    </template>
+    <template lwc:else>
+        <p>Query animaux</p>
+    </template>
+</template>
