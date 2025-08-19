@@ -1,7 +1,7 @@
 <template>
-    <lightning-button label="All" onclick={queryall}></lightning-button>
-    <lightning-button label="Adopted" onclick={queryadopted}></lightning-button>
-    <lightning-button label="For Adoption" onclick={querynotadopted}></lightning-button>
+    <lightning-button label="All" onclick={querypets} data-querytype="all"></lightning-button>
+    <lightning-button label="Adopted" onclick={querypets} data-querytype="adopted"></lightning-button>
+    <lightning-button label="For Adoption" onclick={querypets} data-querytype="notadopted"></lightning-button>
     <template lwc:if={result}>
         <div class="slds-grid">
             <template for:each={result.data} for:item="pet">
