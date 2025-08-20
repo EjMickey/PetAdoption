@@ -1,3 +1,22 @@
 <template>
-    
+    <p>Adoption form:</p>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-column slds-size_1-of-2">
+            <lightning-record-edit-form object-api-name='Contact' record-id={recordId}>
+                <lightning-messages></lightning-messages>
+                <lightning-input type="text" label="First Name" field-name="FirstName"></lightning-input>
+                <lightning-input type="text" label="Last Name" field-name="LastName"></lightning-input>
+                <lightning-input type="tel" label="Phone" field-name="Phone"></lightning-input>
+                <lightning-input type="email" label="Email" field-name="Email"></lightning-input>
+                <lightning-input type="text" label="Street" field-name="MailingStreet"></lightning-input>
+                <lightning-input type="text" label="Postal code" field-name="MailingPostalCode"></lightning-input>
+                <lightning-input type="text" label="City" field-name="MailingCity"></lightning-input>
+                <lightning-button variant="success" label="Adopt" onclick={adoptPet}
+                    class="slds-p-top_medium" type="submit"></lightning-button>
+            </lightning-record-edit-form>
+        </div>
+        <div class="slds-column slds-size_1-of-2">
+            <p>Or Search for Contact:</p>
+        </div>
+    </div>
 </template>

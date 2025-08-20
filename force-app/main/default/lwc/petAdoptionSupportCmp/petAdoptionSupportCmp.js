@@ -6,6 +6,7 @@ import getNotAdoptedPets from '@salesforce/apex/AdoptionHandler.getNotAdoptedPet
 export default class PetAdoptionSupportCmp extends LightningElement {
     result;
     error;
+    selected_animal;
 
     queryPets(event) {
         const query_type = event.target.dataset.querytype;
@@ -14,10 +15,13 @@ export default class PetAdoptionSupportCmp extends LightningElement {
         switch (query_type) {
             case 'all':
                 promise = getAllPets();
+                break;
             case 'adopted':
                 promise = getAdoptedPets();
+                break;
             case 'notadopted':
                 promise = getNotAdoptedPets();
+                break;
         }
         
         promise
@@ -31,5 +35,10 @@ export default class PetAdoptionSupportCmp extends LightningElement {
                 this.error = error;
                 console.error(error);
             });
+    }
+
+    selectAnimal(event){
+        this.selected_animal = event.detail;
+        console.log('selected animal');
     }
 }

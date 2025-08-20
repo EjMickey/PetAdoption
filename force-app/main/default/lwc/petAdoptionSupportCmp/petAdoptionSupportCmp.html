@@ -1,16 +1,29 @@
 <template>
-    <lightning-button label="All" onclick={querypets} data-querytype="all"></lightning-button>
-    <lightning-button label="Adopted" onclick={querypets} data-querytype="adopted"></lightning-button>
-    <lightning-button label="For Adoption" onclick={querypets} data-querytype="notadopted"></lightning-button>
-    <template lwc:if={result}>
-        <div class="slds-grid">
-            <template for:each={result.data} for:item="pet">
-                <c-pet-card-cmp key={pet} animal={pet}>
-                </c-pet-card-cmp>
+    <div class="slds-grid">
+        <div class="lds-size_2-of-3">
+            <div class="slds-m-bottom_medium">
+                <lightning-button label="All" onclick={queryPets} data-querytype="all"></lightning-button>
+                <lightning-button label="Adopted" onclick={queryPets} data-querytype="adopted"></lightning-button>
+                <lightning-button label="For Adoption" onclick={queryPets}
+                    data-querytype="notadopted"></lightning-button>
+            </div>
+            <template lwc:if={result}>
+                <div class="slds-grid slds-wrap slds-gutters slds-m-top_medium">
+                    <template for:each={result} for:item="pet">
+                        <div key={pet.Id} class="slds-col slds-size_1-of-3 slds-p-bottom_medium">
+                            <c-pet-card-cmp animal={pet} onadoptanimal={selectAnimal}></c-pet-card-cmp>
+                        </div>
+                    </template>
+                </div>
+            </template>
+            <template lwc:else>
+                <p class="slds-text-color_weak slds-m-top_medium">Query animaux</p>
             </template>
         </div>
-    </template>
-    <template lwc:else>
-        <p>Query animaux</p>
-    </template>
+        <div class="lds-size_1-of-3 slds-m-around_medium">
+            <template lwc:if={selected_animal}>
+                <c-pet-adoption-form-cmp recordid={selected_animal}></c-pet-adoption-form-cmp>
+            </template>
+        </div>
+    </div>
 </template>

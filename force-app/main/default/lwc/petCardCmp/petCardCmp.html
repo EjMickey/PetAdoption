@@ -1,19 +1,19 @@
 <template>
-    <lightning-card title={animal.Name}>
-        <p>Type: {animal.Type__c}</p>
-        <p>Birthday: {animal.Birthday__c}</p>
-        <p>Color: {animal.Color__c}</p>
-        <p>Description: {animal.Description__c}</p>
-        <template lwc:if={animal.For_Adoption__c}>
-            <p>For Adoption</p>
-        </template>
-        <template lwc:else>
-            <p>Owner: {animal.Owner__c}</p>
-        </template>
-        <p slot="footer">
+        <lightning-card title={animal.Name}>
+            <p>Type: {animal.Type__c}</p>
+            <p>Birthday: {animal.Birthday__c}</p>
+            <p>Color: {animal.Color__c}</p>
+            <p>Description: {animal.Description__c}</p>
             <template lwc:if={animal.For_Adoption__c}>
-                <lightning-button label="Adopt" onclick={adoptanimal}></lightning-button>
+                <p class="slds-text-color_success">For Adoption</p>
             </template>
-        </p>
-    </lightning-card>
+            <template lwc:else>
+                <p class="slds-text-color_inverse">Owner: {animal.Owner__c}</p>
+            </template>
+            <p slot="footer">
+                <template lwc:if={animal.For_Adoption__c}>
+                    <lightning-button label="Adopt" onclick={adoptAnimal}></lightning-button>
+                </template>
+            </p>
+        </lightning-card>
 </template>

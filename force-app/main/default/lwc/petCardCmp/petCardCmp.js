@@ -4,6 +4,6 @@ export default class PetCardCmp extends LightningElement {
     @api animal
 
     adoptAnimal(){
-        this.dispatchEvent(new CustomEvent('adoptAnimal', {detail: this.animal.Id}))
+        this.dispatchEvent(new CustomEvent('adoptanimal', {detail: this.animal.Id}))
     }
 }
