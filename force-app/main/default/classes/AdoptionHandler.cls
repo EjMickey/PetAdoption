@@ -14,7 +14,7 @@ public with sharing class AdoptionHandler {
         return [SELECT Type__c, Birthday__c, Color__c, Description__c, For_Adoption__c, Owner__c  FROM Pet__c WHERE For_Adoption__c = true LIMIT 200];
     }
     
-    @AuraEnabled(cacheable=true)
+    @AuraEnabled
     public static void adoptPet(Map<String, Object> contactInfo, Id petId){
         Contact c = new Contact();
         c.FirstName = (String)contactInfo.get('FirstName');

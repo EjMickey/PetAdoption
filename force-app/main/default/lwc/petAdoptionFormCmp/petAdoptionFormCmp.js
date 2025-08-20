@@ -6,7 +6,7 @@ export default class PetAdoptionFormCmp extends LightningElement {
     
     adoptPet(){
         const inputs = this.template.querySelectorAll('lightning-input[data-field]');
-        isValid = true;
+        let isValid = true;
         let contactData = {};
 
         inputs.forEach(input => {
@@ -21,6 +21,6 @@ export default class PetAdoptionFormCmp extends LightningElement {
             return;
         }
 
-        adoptPet(contactData, this.recordId);
+        adoptPet({contactInfo: contactData, petId: this.recordId});
     }
 }
