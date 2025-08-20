@@ -8,7 +8,7 @@
                 <p class="slds-text-color_success">For Adoption</p>
             </template>
             <template lwc:else>
-                <p class="slds-text-color_inverse">Owner: {animal.Owner__c}</p>
+                <p class="slds-text-color_inverse">Owner: {ownerName}</p>
             </template>
             <p slot="footer">
                 <template lwc:if={animal.For_Adoption__c}>

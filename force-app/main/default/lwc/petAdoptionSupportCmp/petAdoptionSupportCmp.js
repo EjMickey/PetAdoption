@@ -39,6 +39,6 @@ export default class PetAdoptionSupportCmp extends LightningElement {
 
     selectAnimal(event){
         this.selected_animal = event.detail;
-        console.log('selected animal');
+        console.log('selected animal'+ this.selected_animal);
     }
 }

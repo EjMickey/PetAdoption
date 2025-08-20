@@ -1,6 +1,5 @@
 import { LightningElement, api} from 'lwc';
 import adoptPet from '@salesforce/apex/AdoptionHandler.adoptPet';
-s
 export default class PetAdoptionFormCmp extends LightningElement {
     @api recordId;
     
@@ -19,8 +18,17 @@ export default class PetAdoptionFormCmp extends LightningElement {
 
         if(!isValid){
             return;
+            console.log('error with validation occured:'+input);
         }
 
-        adoptPet({contactInfo: contactData, petId: this.recordId});
+        console.log('Contact is being inserted');
+        console.log(this.recordId);
+        adoptPet({contactInfo: contactData, petId: this.recordId})
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
     }
 }

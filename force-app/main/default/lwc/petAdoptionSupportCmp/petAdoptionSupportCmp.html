@@ -4,8 +4,7 @@
             <div class="slds-m-bottom_medium">
                 <lightning-button label="All" onclick={queryPets} data-querytype="all"></lightning-button>
                 <lightning-button label="Adopted" onclick={queryPets} data-querytype="adopted"></lightning-button>
-                <lightning-button label="For Adoption" onclick={queryPets}
-                    data-querytype="notadopted"></lightning-button>
+                <lightning-button label="For Adoption" onclick={queryPets} data-querytype="notadopted"></lightning-button>
             </div>
             <template lwc:if={result}>
                 <div class="slds-grid slds-wrap slds-gutters slds-m-top_medium">
@@ -22,7 +21,7 @@
         </div>
         <div class="lds-size_1-of-3 slds-m-around_medium">
             <template lwc:if={selected_animal}>
-                <c-pet-adoption-form-cmp recordid={selected_animal}></c-pet-adoption-form-cmp>
+                <c-pet-adoption-form-cmp record-id={selected_animal}></c-pet-adoption-form-cmp>
             </template>
         </div>
     </div>
